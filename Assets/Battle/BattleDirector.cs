@@ -9,13 +9,15 @@ public class BattleDirector : MonoBehaviour
     GameObject PlayerMpText;
     GameObject EnemyHpText;
 
+    public LoadScenes loadScenes;
+
     public static int TurnCnt; //ターン数カウント
 
-    private static int PlayerHp;
-    private static int PlayerMp;
-    private int CostMp;
-    private int PlayerStrength;
-    private int PlayerIntelligence;
+    int PlayerHp;
+    int PlayerMp;
+    int CostMp;
+    int PlayerStrength;
+    int PlayerIntelligence;
 
     private static int EnemyHp;
     private int EnemyStrength;
@@ -27,29 +29,28 @@ public class BattleDirector : MonoBehaviour
     //Playerが受けるダメージ
     private int PlayerDamage;
 
-  
+    [SerializeField] PlayerStatus playerStatus;
+    [SerializeField] EnemyStatus enemyStatus;
 
-    private void Start()
+    void Start()
     {
         TurnCnt = 0;
 
-        PlayerHp = PlayerStatus.hp;
-        PlayerMp = PlayerStatus.mp;
-        PlayerStrength = PlayerStatus.strength;
-        PlayerIntelligence = PlayerStatus.intelligence;
-        CostMp = PlayerStatus.costMp;
+        //PlayerStatus
+        PlayerHp = playerStatus.hp;
+        PlayerMp = playerStatus.mp;
+        PlayerStrength = playerStatus.strength;
+        PlayerIntelligence = playerStatus.intelligence;
+        CostMp = playerStatus.costMp;
 
-        EnemyHp = EnemyStatus.hp;
-        EnemyStrength = EnemyStatus.strength;
+        //EnemyStatus
+        EnemyHp = enemyStatus.hp;
+        EnemyStrength = enemyStatus.strength;
 
-
-
+        //Damege
         EnemyDamage = PlayerStrength * 10;
         EnemyMPDamage = PlayerIntelligence * 10;
-
         PlayerDamage = EnemyStrength * 10;
-
-
 
         //text設定
         this.MainText = GameObject.Find("MainText");
@@ -62,46 +63,38 @@ public class BattleDirector : MonoBehaviour
         this.PlayerHpText.GetComponent<TextMeshProUGUI>().text = "HP:" + PlayerHp.ToString();
         this.PlayerMpText.GetComponent<TextMeshProUGUI>().text = "MP:" + PlayerMp.ToString();
         this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:" + EnemyHp.ToString();
-
-
     }
-
-
-
-
 
     public void PlayerAttack()//AttackButton押下時呼び出し 敵ダメージ計算
     {
         if (TurnCnt % 2 == 0)
-        {   
+        {
             TurnCnt++;
-            EnemyHp -= EnemyDamage;      
+            EnemyHp -= EnemyDamage;
             Debug.Log("EnemyHP" + EnemyHp + " " + "turn" + TurnCnt); // ログを出力
             if (EnemyHp <= 0)
             {
                 this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:0";
                 this.MainText.GetComponent<TextMeshProUGUI>().text = "Playerの勝利！";
-                Invoke(nameof(LoadDungeonScene), 1.0f);
+                Invoke(nameof(LoadDungeon), 1.0f);
             }
             else
             {
                 this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:" + EnemyHp.ToString();
                 this.MainText.GetComponent<TextMeshProUGUI>().text = "Playerの攻撃！\n\n(Spaceキーで進む)";
             }
-
         }
     }
-
-
     public void PlayerMPAttack()//MPAttackButton押下時呼び出し　敵ダメージ計算
     {
         if (TurnCnt % 2 == 0)
-        {   
+        {
             if (PlayerMp >= CostMp)
             {
                 TurnCnt++;
                 EnemyHp -= EnemyMPDamage;
                 PlayerMp -= CostMp;
+
                 Debug.Log("EnemyHP" + EnemyHp + " " + "PlayerMp" + PlayerMp + "turn" + TurnCnt); // ログを出力
                 this.PlayerMpText.GetComponent<TextMeshProUGUI>().text = "MP:" + PlayerMp.ToString();
                 this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:" + EnemyHp.ToString();
@@ -109,22 +102,19 @@ public class BattleDirector : MonoBehaviour
                 {
                     this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:0";
                     this.MainText.GetComponent<TextMeshProUGUI>().text = "Playerの勝利！";
-                    Invoke(nameof(LoadDungeonScene), 1.0f);
+                    Invoke(nameof(LoadDungeon), 1.0f);
                 }
                 else
                 {
                     this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:" + EnemyHp.ToString();
                     this.MainText.GetComponent<TextMeshProUGUI>().text = "PlayerのMP攻撃！\n\n(Spaceキーで進む)";
-
                 }
             }
             else
             {
                 this.EnemyHpText.GetComponent<TextMeshProUGUI>().text = "HP:" + EnemyHp.ToString();
                 this.MainText.GetComponent<TextMeshProUGUI>().text = "MPが足りない！\n\n(ボタンをクリック)";
-
             }
-
         }
     }
 
@@ -133,11 +123,11 @@ public class BattleDirector : MonoBehaviour
         TurnCnt++;
 
         int rnd = Random.Range(0, 3);
-        if(rnd == 0)
+        if (rnd == 0)
         {
             Debug.Log("Random" + rnd);
             this.MainText.GetComponent<TextMeshProUGUI>().text = "うまく逃げ切れた！";
-            Invoke(nameof(LoadDungeonScene), 1.0f);
+            Invoke(nameof(LoadDungeon), 1.0f);
         }
         else
         {
@@ -145,14 +135,10 @@ public class BattleDirector : MonoBehaviour
             this.MainText.GetComponent<TextMeshProUGUI>().text = "逃げられない！\n\n(Spaceキーで進む)";
         }
     }
-
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) //Spaceキー押下時呼び出し　Playerダメージ計算
         {
-
             if (TurnCnt % 2 == 1)
             {
                 TurnCnt++;
@@ -165,24 +151,18 @@ public class BattleDirector : MonoBehaviour
                 }
                 else
                 {
-                    
-                    Invoke(nameof(LoadGameOverScene), 1.0f);
-
+                    this.MainText.GetComponent<TextMeshProUGUI>().text = "Playerの敗北！";
+                    Invoke(nameof(LoadGameOver), 1.0f);
                 }
             }
         }
     }
-
-
-     private void LoadDungeonScene() //Dungeonシーンへ遷移
+    private void LoadDungeon() //Dungeonシーンへ遷移
     {
-        SceneManager.LoadScene("DungeonScene");
+        loadScenes.LoadDungeonScene();
     }
-
-    
-    private void LoadGameOverScene() //GameOverシーンへ遷移
+    private void LoadGameOver() //GameOverシーンへ遷移
     {
-        SceneManager.LoadScene("GameOverScene");
+        loadScenes.LoadGameOverScene();
     }
-
 }

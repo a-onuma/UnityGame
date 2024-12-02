@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+[CreateAssetMenu(menuName = "Enemy_Status")]
+public class EnemyStatus : ScriptableObject
 {
-    public static int hp = 1000;
-    public static int strength = 20;
-   
+    public int hp = 1000;
+    public int strength = 20;
 }
+

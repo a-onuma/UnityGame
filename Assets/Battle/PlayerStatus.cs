@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+[CreateAssetMenu(menuName = "Player_Status")]
+public class PlayerStatus : ScriptableObject
 {
-    public static int hp = 1000;
-    public static int mp = 100;
-    public static int strength = 10;
-    public static int intelligence = 30;
-    public static int costMp = 30;
-
+    public int hp = 1000;
+    public int mp = 100;
+    public int strength = 10;
+    public int intelligence = 30;
+    public int costMp = 30;
 }
+

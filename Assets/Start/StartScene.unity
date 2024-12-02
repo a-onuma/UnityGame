@@ -307,8 +307,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 245502499}
-        m_TargetAssemblyTypeName: StartDirector, Assembly-CSharp
-        m_MethodName: StartButton
+        m_TargetAssemblyTypeName: LoadScenes, Assembly-CSharp
+        m_MethodName: LoadDungeonScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -365,7 +365,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 245502494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0374f5b9ed8b2d146afd95a3d4b65b75, type: 3}
+  m_Script: {fileID: 11500000, guid: 7985eabe8ecbc314ba0f8fc0ae1a6945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &507814479
@@ -519,8 +519,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
-  m_sharedMaterial: {fileID: -8716724974317668558, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -799,8 +799,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u2191\u30AD\u30FC\uFF1A\u524D\u9032\n\u2190\u30AD\u30FC\uFF1A\u5DE6\u306B90\u5EA6\u56DE\u8EE2\n\u2192\u30AD\u30FC\uFF1A\u53F3\u306B90\u5EA6\u56DE\u8EE2"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
-  m_sharedMaterial: {fileID: -8716724974317668558, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 692da68a683568f4fb17db0a65e3743d, type: 2}
+  m_sharedMaterial: {fileID: -8716724974317668558, guid: 692da68a683568f4fb17db0a65e3743d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

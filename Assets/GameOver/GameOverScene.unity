@@ -516,8 +516,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GameOver!!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
-  m_sharedMaterial: {fileID: -8716724974317668558, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

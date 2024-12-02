@@ -270,8 +270,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ReStart
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
-  m_sharedMaterial: {fileID: -8716724974317668558, guid: 9385a93f6e15b934d9e2e4c65644c9e4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 692da68a683568f4fb17db0a65e3743d, type: 2}
+  m_sharedMaterial: {fileID: -8716724974317668558, guid: 692da68a683568f4fb17db0a65e3743d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -611,8 +611,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1314832729}
-        m_TargetAssemblyTypeName: ReStartButtonController, Assembly-CSharp
-        m_MethodName: ReStartButton
+        m_TargetAssemblyTypeName: LoadScenes, Assembly-CSharp
+        m_MethodName: LoadDungeonScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314832724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4459c96ec032ed24d89df620435bed40, type: 3}
+  m_Script: {fileID: 11500000, guid: 7985eabe8ecbc314ba0f8fc0ae1a6945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1783417202
@@ -731,8 +731,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Game Clear!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 692da68a683568f4fb17db0a65e3743d, type: 2}
+  m_sharedMaterial: {fileID: -8716724974317668558, guid: 692da68a683568f4fb17db0a65e3743d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
